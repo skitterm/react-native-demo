@@ -1,15 +1,18 @@
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 	<link rel="stylesheet" href="https://js.arcgis.com/4.0beta1/esri/css/esri.css">
 	<style>
 	  html, body {
     	margin: 0;
     	padding: 0;
+    	height: 100%;
+    	width: 100%;
     }
     
     #my-map {
-    	width: 100%;
-    	height: 100%;
+    	min-width: 100%;
+    	min-height: 100%;
     }
 	</style>
 	<script src="https://js.arcgis.com/4.0beta1/"></script>
@@ -82,32 +85,7 @@
             
           layer.on("graphics-controller-create", function(evt) {
       		layerLoaded(evt.graphicsController.graphicsCollection);
-      	});
-      	
-      	/*function WebViewBridgeReady(cb) {
-      	  //checks whether WebViewBirdge exists in global scope.
-      	  if (window.WebViewBridge) {
-      		cb(window.WebViewBridge);
-      		return;
-      	  }
-      
-      	  function handler() {
-      		//remove the handler from listener since we don't need it anymore
-      		document.removeEventListener('WebViewBridge', handler, false);
-      		//pass the WebViewBridge object to the callback
-      		cb(window.WebViewBridge);
-      	  }		 
-      
-      	  //if WebViewBridge doesn't exist in global scope attach itself to document
-      	  //event system. Once the code is being injected by extension, the handler will
-      	  //be called.
-      	  document.addEventListener('WebViewBridge', handler, false);
-      	}
-      	
-      	WebViewBridgeReady(function(WebViewBridge) {
-      	    alert('here');
-      		WebViewBridge.send('Hi there');
-          });*/
+      	});      
       });
 	</script>
 </body>

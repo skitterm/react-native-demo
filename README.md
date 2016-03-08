@@ -22,19 +22,21 @@ This repository shows a <a href="https://facebook.github.io/react-native/">React
 * iOS -- Keyboard doesn't dismiss after filtering list of points
 
 ##Setup
-These steps are for OSX environment (windows/linux development is <a href="https://facebook.github.io/react-native/docs/linux-windows-support.html">currently in beta</a>, but only for Android development)
+These steps are for OSX environment (windows/linux development is <a href="https://facebook.github.io/react-native/docs/linux-windows-support.html">currently in beta</a>, but only for Android development).
+
+For either platform, clone down this project and <a href="https://facebook.github.io/react-native/docs/getting-started.html">install React Native</a> (no need to install flow).
 ####iOS
 * Open a terminal, navigate to root of project, run <code>npm install</code>
-* install XCode
-* In Finder, navigate to <code>project root/iOS</code> and open <code>MapTour.xcodeproj</code>
+* Install XCode
+* In Finder, navigate to <code>(project root folder)/iOS</code> and open <code>MapTour.xcodeproj</code> (will launch XCode)
 * In XCode, click Run
 * The project will build and the emulator will launch with the app installed
 
 ####Android
 * Open a terminal, navigate to root of project, run <code>npm install</code>
-* install Android Studio
-* In Android studio, <code> Open -> project's root folder/android</code>
-* In the terminal (still at project's root), run <code>npm start</code>
+* Install Android Studio
+* In Android studio, <code> Open -> (project root folder)/android</code>
+* In the terminal (still at project root folder), run <code>npm start</code>
 * In Android studio, click Run
 * The project will build and the emulator will launch with the app installed
 

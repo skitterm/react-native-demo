@@ -6,7 +6,9 @@ This repository shows a <a href="https://facebook.github.io/react-native/">React
 ![alt tag](https://raw.githubusercontent.com/skitterm/react-native-demo/gh-pages/iosMapIn.png)
 ![alt tag](https://raw.githubusercontent.com/skitterm/react-native-demo/gh-pages/iosPoint.png)
 
+
 ##Features
+* Data queried from a Feature Service layer
 * Filterable list of tour points (by title)
 * Map of points (map uses ArcGIS API for JavaScript, loaded via a WebView)
 * Image picker using the device's images/camera
@@ -31,6 +33,7 @@ For either platform, clone down this project and <a href="https://facebook.githu
 * In Finder, navigate to <code>(project root folder)/iOS</code> and open <code>MapTour.xcodeproj</code> (will launch XCode)
 * In XCode, click Run
 * The project will build and the emulator will launch with the app installed
+* To run on a device, see <a href="https://facebook.github.io/react-native/docs/running-on-device-ios.html">this page</a>
 
 ####Android
 * Open a terminal, navigate to root of project, run <code>npm install</code>
@@ -39,6 +42,7 @@ For either platform, clone down this project and <a href="https://facebook.githu
 * In the terminal (still at project root folder), run <code>npm start</code>
 * In Android studio, click Run
 * The project will build and the emulator will launch with the app installed
+* To run on a device, see <a href="https://facebook.github.io/react-native/docs/running-on-device-android.html">this page</a>
 
 ##Resources
 * Getting started with React Native -- https://facebook.github.io/react-native/docs/getting-started.html

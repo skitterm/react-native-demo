@@ -1,0 +1,114 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://js.arcgis.com/4.0beta1/esri/css/esri.css">
+	<style>
+	  html, body {
+    	margin: 0;
+    	padding: 0;
+    }
+    
+    #my-map {
+    	width: 100%;
+    	height: 100%;
+    }
+	</style>
+	<script src="https://js.arcgis.com/4.0beta1/"></script>
+</head>
+<body>
+	<div id="my-map"></div>
+	<script>
+	  require(['esri/Map', 'esri/views/MapView', 'esri/layers/FeatureLayer', 'esri/geometry/Extent', 'esri/renderers/UniqueValueRenderer', 'esri/symbols/PictureMarkerSymbol', 'dojo/on', 'dojo/domReady!'], 
+      function(Map, MapView, FeatureLayer, Extent, UniqueValueRenderer, PictureMarkerSymbol, on) {
+      	'use strict';
+      	var map = null,
+      		mapView = null,
+      		layer = null,
+      		featureLayerUrl = 'https://services.arcgis.com/nzS0F0zdNLvs7nc8/arcgis/rest/services/MTBENCHMARK2DATA2/FeatureServer/0',
+      		extent = null;
+      	
+      	extent = new Extent({
+              "xmin":-13137712.709147869,
+      		"ymin":-10683862.326787896,
+      		"xmax":-4332167.050697906,
+      		"ymax":2504888.2816460487,
+              "spatialReference":{"wkid":102100,"latestWkid":3857}
+            });
+      	
+      	layer = new FeatureLayer({
+      		url: featureLayerUrl,
+      		outFields: ['*'],
+      		renderer: new UniqueValueRenderer(null, 'F__OBJECTID')
+      	});
+      	
+      	map = new Map({
+      		basemap: 'topo'
+      	});
+      	
+      	mapView = new MapView({
+      		map: map,
+      		container: 'my-map',
+      		extent: extent
+      	});
+      	
+      	map.add(layer);
+      	
+      	
+      	var dataAdd = function(graphic, index) {
+      		
+      		if ( index == 0 || index >= 99 ) {
+      			return;
+      		}
+      		
+              layer.renderer.addValue({
+                value:  graphic.attributes.F__OBJECTID,
+                symbol: new PictureMarkerSymbol(
+                  'http://www.arcgis.com/apps/MapTour/resources/markers/red/NumberIcon' + (index+1) + '.png', 
+                  22, 
+                  28
+                )
+              });
+          };
+      
+            var layerLoaded = function(data) {
+              
+              //  Add renderer values
+             // data.forEach(dataAdd);
+              data.on('change', function(evt) {
+                evt.added.forEach(function(graphic) {
+                  dataAdd(graphic, data.indexOf(graphic));
+                });
+              });       
+            };
+            
+          layer.on("graphics-controller-create", function(evt) {
+      		layerLoaded(evt.graphicsController.graphicsCollection);
+      	});
+      	
+      	/*function WebViewBridgeReady(cb) {
+      	  //checks whether WebViewBirdge exists in global scope.
+      	  if (window.WebViewBridge) {
+      		cb(window.WebViewBridge);
+      		return;
+      	  }
+      
+      	  function handler() {
+      		//remove the handler from listener since we don't need it anymore
+      		document.removeEventListener('WebViewBridge', handler, false);
+      		//pass the WebViewBridge object to the callback
+      		cb(window.WebViewBridge);
+      	  }		 
+      
+      	  //if WebViewBridge doesn't exist in global scope attach itself to document
+      	  //event system. Once the code is being injected by extension, the handler will
+      	  //be called.
+      	  document.addEventListener('WebViewBridge', handler, false);
+      	}
+      	
+      	WebViewBridgeReady(function(WebViewBridge) {
+      	    alert('here');
+      		WebViewBridge.send('Hi there');
+          });*/
+      });
+	</script>
+</body>
+</html>

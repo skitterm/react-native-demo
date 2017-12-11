@@ -7,27 +7,27 @@ This repository shows a <a href="https://facebook.github.io/react-native/">React
 ![alt tag](https://raw.githubusercontent.com/skitterm/react-native-demo/gh-pages/iosPoint.png)
 
 
-##Features
+## Features
 * Data queried from a Feature Service layer
 * Filterable list of tour points (by title)
 * Map of points (map uses ArcGIS API for JavaScript, loaded via a WebView)
 * Image picker using the device's images/camera
 * Swipable view of tour points
 
-####Limitations
+#### Limitations
 * Swipable view -- tour points aren't synced with the map
 * Image picker -- picking an image doesn't do anything with it (just a proof-of-concept)
 
-####Issues
+#### Issues
 * Android -- Map view map shows very small, swipable tour point view sometimes crashes app
 * Navigation bar -- navigating back and forth can cause navigation to wrong page
 * iOS -- Keyboard doesn't dismiss after filtering list of points
 
-##Setup
+## Setup
 These steps are for OSX environment (windows/linux development is <a href="https://facebook.github.io/react-native/docs/linux-windows-support.html">currently in beta</a>, but only for Android development).
 
 For either platform, clone down this project and <a href="https://facebook.github.io/react-native/docs/getting-started.html">install React Native</a> (no need to install flow).
-####iOS
+#### iOS
 * Open a terminal, navigate to root of project, run <code>npm install</code>
 * Install XCode
 * In Finder, navigate to <code>(project root folder)/iOS</code> and open <code>MapTour.xcodeproj</code> (will launch XCode)
@@ -35,7 +35,7 @@ For either platform, clone down this project and <a href="https://facebook.githu
 * The project will build and the emulator will launch with the app installed
 * To run on a device, see <a href="https://facebook.github.io/react-native/docs/running-on-device-ios.html">this page</a>
 
-####Android
+#### Android
 * Open a terminal, navigate to root of project, run <code>npm install</code>
 * Install Android Studio
 * In Android studio, <code> Open -> (project root folder)/android</code>
@@ -44,5 +44,5 @@ For either platform, clone down this project and <a href="https://facebook.githu
 * The project will build and the emulator will launch with the app installed
 * To run on a device, see <a href="https://facebook.github.io/react-native/docs/running-on-device-android.html">this page</a>
 
-##Resources
+## Resources
 * Getting started with React Native -- https://facebook.github.io/react-native/docs/getting-started.html
